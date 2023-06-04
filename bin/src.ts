@@ -10,8 +10,7 @@ config();
 const app = new cdk.App();
 
 const lambdaEvent: LambdaEvent = {
-  DISCORD_WEBHOOK_URL: process.env.DISCORD_WEBHOOK_URL!,
-  DISCORD_WEBHOOK_USERNAME: "Webby"
+  message: "Scheduled message"
 };
 // Cron Rule is in UTC
 const cronRule: CronOptions = {
