@@ -5,8 +5,9 @@ import * as userCode from "../src/lambdaHandler";
 import { Context } from 'aws-lambda';
 
 const localEvent: userCode.LambdaEvent = {
-    DISCORD_WEBHOOK_URL: process.env.DISCORD_WEBHOOK_URL!,
-    DISCORD_WEBHOOK_USERNAME: "Local Test",
+    message: "Hello World"
 };
 
-userCode.handler(localEvent, {} as Context, () => { });
+const response = userCode.handler(localEvent, {} as Context, () => { });
+
+console.log(response);

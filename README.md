@@ -1,11 +1,11 @@
 # lambda-discord-webhook
 
-Simple template for setting up a scheduled lambda function that triggers a discord webhook to send a message.
+Simple template for setting up a scheduled lambda function.
 
-Meant to be a starting point for someone to set up their own webhook triggered on a schedule.
+Meant to be a starting point for someone to set up their own scheduled jobs running on AWS Lambda.
 
 ## Summary
-Use this repository as a starting place to automate discord messages. This package will help you set up the necessary AWS Infratructure to have a lambda triggered on a schedule that will call your code.
+Use this repository as a starting place to automate lambdas. This package will help you set up the necessary AWS Infratructure to have a lambda triggered on a schedule that will call your code.
 
 ## Prerequisites
 1. Install the [AWS CDK Toolkit](https://docs.aws.amazon.com/cdk/v2/guide/cli.html)
@@ -14,15 +14,13 @@ Use this repository as a starting place to automate discord messages. This packa
 2. Have your choice of npm/yarn installed
 
 ## Getting started
-1. Create a webhook to call in Discord by following [these instructions](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
-2. Fork this repository and pull locally
+1. Fork this repository and pull locally
    - To change the schedule edit the `cronRule` in `bin/src.ts`
-   - To modify the discord message edit the `handler` method in `src/lambdaHandler.ts`
-3. Create a `.env` file (using `.env.example` as an example). Use the URL from the webhook's "Copy Webhook URL" button on discord for `DISCORD_WEBHOOK_URL`.
-4. Run `npm run build` to ensure everything works
-5. Run `npm run test-local` to ensure the webhook is sending messages to the discord channel
+   - To modify the code edit the `handler` method in `src/lambdaHandler.ts`
+2. Run `npm run build` to ensure everything works
+3. Run `npm run test-local` to ensure the lambdas code is working correctly
    - Use this whenever you want to test your lambda code without deploying. Make sure to build first
-5. Run `cdk deploy` to deploy!
+4. Run `cdk deploy` to deploy!
    - You'll want to re-run this any time you want to deploy new code to the lambda, or you set a new schedule
    - If you encounter a timeout issue, try modifying the timeout in `lib/typescript-lambda-stack.ts`
 
