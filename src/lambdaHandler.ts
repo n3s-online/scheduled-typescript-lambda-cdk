@@ -7,7 +7,7 @@ export const lambdaEventSchema = z.object({
 
 export type LambdaEvent = z.infer<typeof lambdaEventSchema>;
 
-export const handler: Handler = async (event, context) => {
+export const handler: Handler = async (event: LambdaEvent, context) => {
   return {
     statusCode: 200,
     body: `Sucessful. Event message: ${event.message}`,
